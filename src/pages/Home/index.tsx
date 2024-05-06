@@ -1,4 +1,5 @@
 import {
+  DividerComponent,
   FlexComponent,
   HeadingComponent,
   ImageComponent,
@@ -11,7 +12,9 @@ import { IProduct } from "@interfaces/components";
 import {
   ButtonsFilterStyled,
   ContainerImageMainStyled,
+  ContainerInfoStyled,
   ContainerNotFoundProducts,
+  FlowerImgStyled,
   HomeStyled,
   ImageMainStyled,
   OrderElementsStyled,
@@ -26,6 +29,7 @@ import {
 } from "@constants/Products";
 import { useProductContext } from "@contexts/ProductsProvider/context";
 import { useEffect, useState } from "@libs/react";
+import { theme } from "@styles";
 
 export const Home = () => {
   const [pageSelected, setPageSelected] = useState(0);
@@ -52,6 +56,31 @@ export const Home = () => {
           loading="lazy"
           {...ImageMainStyled}
         />
+
+        <FlexComponent {...ContainerInfoStyled}>
+          <HeadingComponent fontSize={theme.typography.fontSize.xxxxl}>
+            Bem-vindo à
+            <strong style={{ color: theme.palette.pink["1000"] }}>
+              {" "}
+              Tatiana Verza
+            </strong>{" "}
+            transformando ingredientes em{" "}
+            <strong style={{ color: theme.palette.pink["1000"] }}>
+              doces
+            </strong>{" "}
+            momentos de felicidade, uma mordida de cada vez.
+          </HeadingComponent>
+
+          <DividerComponent style={{ color: theme.palette.pink["1000"] }} />
+          <HeadingComponent fontSize="24px">
+            Explore nossa seleção e deixe-nos adoçar seus momentos especiais com
+            nossa paixão pelo doce.
+          </HeadingComponent>
+        </FlexComponent>
+
+        <FlexComponent {...FlowerImgStyled}>
+          <ImageComponent src="../src/assets/img/flower1.svg" loading="lazy" />
+        </FlexComponent>
       </FlexComponent>
 
       <FlexComponent {...HomeStyled}>
@@ -107,7 +136,7 @@ export const Home = () => {
           )}
         </FlexComponent>
 
-        {quantityProducts > 0 && (
+        {/* {quantityProducts > 0 && (
           <FlexComponent {...PagingContainerStyled}>
             {new Array(quantityProducts).fill("").map((_, index: number) => (
               <Paging
@@ -138,7 +167,7 @@ export const Home = () => {
               }}
             />
           </FlexComponent>
-        )}
+        )} */}
       </FlexComponent>
     </>
   );

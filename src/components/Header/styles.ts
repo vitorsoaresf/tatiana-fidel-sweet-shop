@@ -31,6 +31,7 @@ export const ContainerListStyled: StyleComponents | ListProps = {
   gap: "20px",
   margin: 0,
   flexWrap: "wrap",
+  color: theme.palette.pink["1000"],
 };
 
 export const styledHover = {
@@ -41,7 +42,7 @@ export const ContainerItemListStyled: StyleComponents = {
   ...styledHover,
   fontWeight: "bold",
   display: "flex",
-  alignItems: "center",
+  alignItems: "flex-end",
   gap: "16px",
 };
 

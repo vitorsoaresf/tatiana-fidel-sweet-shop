@@ -23,6 +23,7 @@ import { useProduct } from "@hooks/useProducts";
 import { useEffect } from "@libs/react";
 import { useProductContext } from "@contexts/ProductsProvider/context";
 import ImgLogo from "@assets/img/logo_app.svg";
+import { theme } from "@styles";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -57,27 +58,23 @@ export const Header = () => {
           actionBtRightPosition={Icon["search"]}
           width={["310px", "310px", "310px", "350px"]}
           data-test="input-search-product"
+          color={theme.palette.pink["1000"]}
+          borderColor={theme.palette.pink["1000"]}
+          _focusVisible={{
+            borderColor: theme.palette.pink["1000"],
+          }}
+          _placeholder={{ color: theme.palette.pink["1000"] }}
         />
 
-        <ListItemComponent {...ContainerItemListStyled}>
+        <ListItemComponent
+          {...ContainerItemListStyled}
+          _hover={{
+            color: theme.palette.white,
+          }}
+        >
           <Link to="/" style={{ width: "max-content" }}>
-            <ImageComponent src={UserImg} loading="lazy" />
+            {Icon["home"]}
           </Link>
-          <Link
-            to="/cart"
-            data-test="icon-cart-redirect"
-            style={{ width: "max-content", padding: "8px" }}
-          >
-            <ImageComponent src={BagImg} loading="lazy" />
-          </Link>
-          {cartState.list?.length > 0 && (
-            <TextComponent
-              transform="translate3d(-30px, 12px, 12px)"
-              {...QuantityProductsCartStyled}
-            >
-              {cartState.list.length}
-            </TextComponent>
-          )}
         </ListItemComponent>
       </UnorderedListComponent>
     </FlexComponent>
