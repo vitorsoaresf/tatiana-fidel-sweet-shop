@@ -84,35 +84,38 @@ export const Home = () => {
       </FlexComponent>
 
       <FlexComponent {...HomeStyled}>
-        <FlexComponent as="ul" {...ButtonsFilterStyled}>
-          {CATEGORY_LIST.map((category) => (
-            <ButtonFilterProduct
-              key={crypto.randomUUID()}
-              label={category || "Todas as categorias"}
-              onClick={() => {
-                filterProductsByCategory(category);
-              }}
-              active={category === productState.category}
-            />
-          ))}
-        </FlexComponent>
-
         <FlexComponent {...OrderElementsStyled}>
           <TextComponent>
             {productState.listFiltered.length} Produtos
           </TextComponent>
-          <SelectComponent
-            placeholder="(Todos)"
-            onChange={(e: any) => filterProductsByOrder(e.target.value)}
-            value={productState.order}
-            {...SelectElementsStyled}
-          >
-            {ORDER_LIST.map((item: any) => (
-              <option key={crypto.randomUUID()} value={item.value}>
-                {item.label}
-              </option>
-            ))}
-          </SelectComponent>
+
+          <FlexComponent gap="8px">
+            <SelectComponent
+              placeholder="Categoria"
+              onChange={(e: any) => filterProductsByCategory(e.target.value)}
+              value={productState.category}
+              {...SelectElementsStyled}
+            >
+              {CATEGORY_LIST.map((item: any) => (
+                <option key={crypto.randomUUID()} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </SelectComponent>
+
+            <SelectComponent
+              placeholder="Ordenar"
+              onChange={(e: any) => filterProductsByOrder(e.target.value)}
+              value={productState.order}
+              {...SelectElementsStyled}
+            >
+              {ORDER_LIST.map((item: any) => (
+                <option key={crypto.randomUUID()} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </SelectComponent>
+          </FlexComponent>
         </FlexComponent>
 
         <FlexComponent as="ul" data-test="list-products" {...ProductListStyled}>

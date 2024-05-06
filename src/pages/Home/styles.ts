@@ -64,6 +64,7 @@ export const OrderElementsStyled: StyleComponents = {
 export const SelectElementsStyled: StyleComponents = {
   maxWidth: ["200px", "200px", "311.38px"],
   maxHeight: "50px",
+  minWidth: "200px",
 };
 
 export const ProductListStyled: StyleComponents = {

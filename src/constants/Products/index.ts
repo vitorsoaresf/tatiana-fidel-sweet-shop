@@ -1,7 +1,11 @@
-const CATEGORY_LIST = ["", "Tênis", "Camisetas", "Calças"];
+const CATEGORY_LIST = [
+  { value: "tenis", label: "Tênis" },
+  { value: "camisetas", label: "Camisetas" },
+  { value: "calcas", label: "Calças" },
+];
 const ORDER_LIST = [
-  { value: "name", label: "Ordenar por nome" },
-  { value: "price", label: "Ordenar por preço" },
+  { value: "name", label: "Nome" },
+  { value: "price", label: "Preço" },
 ];
 const ELEMENT_PER_PAGE = 6;
 
