@@ -35,7 +35,7 @@ export const CardCart = ({ product }: ICardCart) => {
       <FlexComponent {...ContainerCardStyled}>
         <FlexComponent {...ContainerImageStyled}>
           <ImageComponent
-            src={product.image}
+            src={`../src/assets/img/${product.image}`}
             alt={product.description}
             loading="lazy"
             {...CardImageStyled}

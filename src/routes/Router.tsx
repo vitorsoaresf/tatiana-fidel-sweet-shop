@@ -7,7 +7,7 @@ export const RoutesApp = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/detailsproduct/:id" element={<ProductDetails />}></Route>
+      <Route path="/detailsproduct/:image" element={<ProductDetails />}></Route>
       <Route path="/cart" element={<Cart />}></Route>
     </Routes>
   );

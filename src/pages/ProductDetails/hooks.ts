@@ -1,38 +1,15 @@
-import { ProductService } from "@services/Products";
-import { useQuery } from "@libs/reactQuery";
-import { useNavigate, useParams } from "@libs/reactRouterDom";
-
+import { useParams } from "@libs/reactRouterDom";
 import { IProduct } from "@interfaces/components";
+import Products from "@data/products.json";
 
 export const useProductDetails = () => {
-  const { id: idProduct } = useParams();
-  const navigation = useNavigate();
+  const { image: imageProduct } = useParams();
 
-  const loadProductDetail = async () => {
-    const response = await ProductService.loadSpecificProducts(
-      idProduct ?? "0"
-    );
-
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error();
-  };
-
-  const redirectPage = (path: string) => {
-    navigation(`/${path}`);
-  };
-
-  const productDetails = useQuery({
-    queryKey: ["productDetails"],
-    queryFn: loadProductDetail,
-    initialData: [],
-  });
-
-  const product: IProduct = productDetails.data;
+  const product: IProduct = Products.find(
+    (item) => item.image === imageProduct
+  ) as IProduct;
 
   return {
     product,
-    redirectPage,
   };
 };

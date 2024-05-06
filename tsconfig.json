@@ -19,6 +19,7 @@
       "@hooks/*": ["hooks/*"],
       "@constants/*": ["constants/*"],
       "@contexts/*": ["contexts/*"],
+      "@data/*": ["data/*"],
       "@interfaces/*": ["interfaces/*"],
       "@libs/*": ["libs/*"],
       "@pages/*": ["pages/*"],

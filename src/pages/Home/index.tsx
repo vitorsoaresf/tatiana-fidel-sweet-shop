@@ -33,28 +33,28 @@ import {
 } from "@contexts/ProductsProvider/actions";
 import { useEffect, useState } from "@libs/react";
 import ImgViewProducts from "@assets/img/eyes.svg";
+import Products from "@data/products.json";
 
 export const Home = () => {
   const [pageSelected, setPageSelected] = useState(0);
   const { productState, productDispatch } = useProductContext();
   const {
-    productList,
     countPage,
     handlePagination,
     quantityProducts,
     filterProductsByCategory,
     filterProductsByOrder,
+    loadProducts,
   } = useProduct();
 
   useEffect(() => {
-    setProductList(productDispatch, productList.data);
-
-    if (productState.category || productState.order) {
-      filterProductsByCategory(productState.category);
-    } else {
-      setProductListFiltered(productDispatch, productList.data);
-    }
-  }, [productList.data]);
+    loadProducts();
+    // if (productState.category || productState.order) {
+    //   filterProductsByCategory(productState.category);
+    // } else {
+    //   setProductListFiltered(productDispatch, [...Products]);
+    // }
+  }, []);
 
   return (
     <>

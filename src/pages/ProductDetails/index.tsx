@@ -45,7 +45,7 @@ export const ProductDetails = () => {
           </BreadcrumbItem>
         </BreadcrumbComponent>
         <ImageComponent
-          src={product.image}
+          src={`../src/assets/img/${product.image}`}
           alt={product.description}
           loading="lazy"
           {...ImageProductStyled}

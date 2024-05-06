@@ -16,6 +16,7 @@ export default defineConfig({
       "@hooks": "/src/hooks",
       "@constants": "/src/constants",
       "@contexts": "/src/contexts",
+      "@data": "/src/data",
       "@interfaces": "/src/interfaces",
       "@libs": "/src/libs",
       "@pages": "/src/pages",

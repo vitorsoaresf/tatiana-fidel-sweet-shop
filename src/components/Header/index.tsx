@@ -24,6 +24,7 @@ import { useCart } from "@hooks/useCart";
 import { useProduct } from "@hooks/useProducts";
 import { useEffect } from "@libs/react";
 import { useProductContext } from "@contexts/ProductsProvider/context";
+import ImgLogo from "@assets/img/logo_app.svg";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -37,7 +38,14 @@ export const Header = () => {
 
   return (
     <FlexComponent as="nav" {...ContainerHeaderStyled}>
-      <HeadingComponent
+      <ImageComponent
+        src={ImgLogo}
+        alt="Não há produtos no carrinho"
+        loading="lazy"
+        // {...ContainerImageWithoutStyled}
+      />
+
+      {/* <HeadingComponent
         as="h1"
         data-test="ecommerce"
         onClick={() => navigate("/")}
@@ -47,7 +55,7 @@ export const Header = () => {
           e
         </TextComponent>
         <TextComponent {...ContainerTitleWordStyled}>commerce</TextComponent>
-      </HeadingComponent>
+      </HeadingComponent> */}
       <UnorderedListComponent {...ContainerListStyled}>
         <Input
           placeholder="Quero comprar algo específico..."

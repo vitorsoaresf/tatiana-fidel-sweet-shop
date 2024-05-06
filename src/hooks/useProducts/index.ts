@@ -1,5 +1,3 @@
-import { ProductService } from "@services/Products";
-import { useQuery } from "@libs/reactQuery";
 import { useState } from "@libs/react";
 import { IProduct } from "@interfaces/components";
 import { ELEMENT_PER_PAGE } from "@constants/Products";
@@ -8,32 +6,19 @@ import {
   setOrder,
   setTerm,
   setProductListFiltered,
+  setProductList,
 } from "@contexts/ProductsProvider/actions";
 import { useProductContext } from "@contexts/ProductsProvider/context";
+import Products from "@data/products.json";
 
 export const useProduct = () => {
   const [countPage, setCountPage] = useState({ rangeMin: 0, rangeMax: 6 });
   const { productState, productDispatch } = useProductContext();
+  const productList = [...Products];
 
   const handlePagination = (rangeMin: number, rangeMax: number) => {
     setCountPage({ rangeMin, rangeMax });
   };
-
-  const loadProductsPage = async () => {
-    const response = await ProductService.loadProducts();
-
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error();
-  };
-
-  const productList = useQuery({
-    queryKey: ["products"],
-    queryFn: loadProductsPage,
-    initialData: [],
-    retry: false,
-  });
 
   const filterProductsByCategory = (category: string) => {
     setProductListFiltered(
@@ -79,6 +64,11 @@ export const useProduct = () => {
     setTerm(productDispatch, term);
   };
 
+  const loadProducts = () => {
+    setProductList(productDispatch, [...Products]);
+    setProductListFiltered(productDispatch, [...Products]);
+  };
+
   const quantityProducts = Number(
     (productState.listFiltered.length / ELEMENT_PER_PAGE).toFixed()
   );
@@ -91,5 +81,6 @@ export const useProduct = () => {
     filterProductsByOrder,
     filteByrTerm,
     quantityProducts,
+    loadProducts,
   };
 };

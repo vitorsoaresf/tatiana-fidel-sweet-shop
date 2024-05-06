@@ -33,11 +33,11 @@ export const CardProduct = ({ product }: ICardProduct) => {
       maxW="sm"
       data-test={`product-${product.id}`}
       {...CardStyled}
-      onClick={() => redirectPage(`detailsproduct/${product.id}`)}
+      onClick={() => redirectPage(`detailsproduct/${product.image}`)}
     >
       <CardBodyComponent>
         <ImageComponent
-          src={product.image}
+          src={`../src/assets/img/${product.image}`}
           alt={product.description}
           loading="lazy"
           {...ImageStyled}
@@ -52,14 +52,14 @@ export const CardProduct = ({ product }: ICardProduct) => {
             <TextComponent
               textDecoration={product.promotional_price && "line-through"}
             >
-              ${product.price}
+              R${product.price}
             </TextComponent>
-            {product.promotional_price && (
+            {!!product.promotional_price && (
               <TextComponent>${product.promotional_price}</TextComponent>
             )}
           </FlexComponent>
         </StackComponent>
-        {product.discount_percentage && (
+        {!!product.discount_percentage && (
           <FlexComponent {...DiscountPercentageCardStyled}>
             <TextComponent>${product.discount_percentage} OFF</TextComponent>
           </FlexComponent>
