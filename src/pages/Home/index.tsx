@@ -6,7 +6,7 @@ import {
   TextComponent,
 } from "@libs/chakra";
 import { useProduct } from "@hooks/useProducts";
-import { CardProduct, Paging } from "@components";
+import { CardProduct, Paging, ButtonFilterProduct } from "@components";
 import { IProduct } from "@interfaces/components";
 import {
   ButtonsFilterStyled,
@@ -24,16 +24,8 @@ import {
   CATEGORY_LIST,
   ORDER_LIST,
 } from "@constants/Products";
-import { ButtonFilterProduct } from "@components";
-import ImgMain from "@assets/img/cover.svg";
 import { useProductContext } from "@contexts/ProductsProvider/context";
-import {
-  setProductList,
-  setProductListFiltered,
-} from "@contexts/ProductsProvider/actions";
 import { useEffect, useState } from "@libs/react";
-import ImgViewProducts from "@assets/img/eyes.svg";
-import Products from "@data/products.json";
 
 export const Home = () => {
   const [pageSelected, setPageSelected] = useState(0);
@@ -49,18 +41,13 @@ export const Home = () => {
 
   useEffect(() => {
     loadProducts();
-    // if (productState.category || productState.order) {
-    //   filterProductsByCategory(productState.category);
-    // } else {
-    //   setProductListFiltered(productDispatch, [...Products]);
-    // }
   }, []);
 
   return (
     <>
       <FlexComponent {...ContainerImageMainStyled}>
         <ImageComponent
-          src={ImgMain}
+          src="../src/assets/img/banner-main.svg"
           alt="ecommerce de produtos"
           loading="lazy"
           {...ImageMainStyled}
@@ -112,7 +99,7 @@ export const Home = () => {
                 Não foi possível encontrar nenhum produto.
               </HeadingComponent>
               <ImageComponent
-                src={ImgViewProducts}
+                src="../src/assets/img/eyes.svg"
                 alt="Não há produtos para serem visualizados"
                 loading="lazy"
               />

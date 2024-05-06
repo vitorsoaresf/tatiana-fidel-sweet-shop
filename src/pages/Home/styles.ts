@@ -3,10 +3,11 @@ import { theme } from "@styles";
 
 export const ContainerImageMainStyled: StyleComponents = {
   marginBottom: "67px",
+  background: theme.palette.black,
 };
 
 export const ImageMainStyled: StyleComponents = {
-  width: "100%",
+  width: "50%",
   objectFit: "cover",
 };
 

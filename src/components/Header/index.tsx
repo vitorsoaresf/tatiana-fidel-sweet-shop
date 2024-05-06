@@ -2,11 +2,9 @@ import BagImg from "@assets/img/shopping_img.svg";
 import UserImg from "@assets/img/user.svg";
 import {
   ContainerHeaderStyled,
-  ContainerHeadingStyled,
+  ContainerImageLogoStyled,
   ContainerItemListStyled,
   ContainerListStyled,
-  ContainerTitleInitialCharacterStyled,
-  ContainerTitleWordStyled,
   QuantityProductsCartStyled,
 } from "./styles";
 import {
@@ -37,25 +35,20 @@ export const Header = () => {
   }, []);
 
   return (
-    <FlexComponent as="nav" {...ContainerHeaderStyled}>
+    <FlexComponent
+      as="nav"
+      backdropFilter="blur(10px)"
+      {...ContainerHeaderStyled}
+    >
       <ImageComponent
         src={ImgLogo}
         alt="Não há produtos no carrinho"
         loading="lazy"
-        // {...ContainerImageWithoutStyled}
+        data-test="logo"
+        onClick={() => navigate("/")}
+        {...ContainerImageLogoStyled}
       />
 
-      {/* <HeadingComponent
-        as="h1"
-        data-test="ecommerce"
-        onClick={() => navigate("/")}
-        {...ContainerHeadingStyled}
-      >
-        <TextComponent {...ContainerTitleInitialCharacterStyled}>
-          e
-        </TextComponent>
-        <TextComponent {...ContainerTitleWordStyled}>commerce</TextComponent>
-      </HeadingComponent> */}
       <UnorderedListComponent {...ContainerListStyled}>
         <Input
           placeholder="Quero comprar algo específico..."

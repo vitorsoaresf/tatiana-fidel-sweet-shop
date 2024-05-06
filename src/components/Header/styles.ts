@@ -4,30 +4,21 @@ import { theme } from "@styles";
 
 export const ContainerHeaderStyled: StyleComponents = {
   padding: "20px 20px",
-  backgroundColor: theme.palette.white,
+  backgroundColor: "transparent",
   display: "flex",
   flexDirection: ["column", "column", "row"],
   fontFamily: theme.typography.fonts.poppins,
   justifyContent: ["center", "center", "space-between"],
   alignItems: "center",
   minHeight: "111px",
+  position: "fixed",
+  width: "100%",
+  zIndex: 3,
 };
 
-export const ContainerHeadingStyled: StyleComponents = {
-  fontSize: theme.typography.fontSize.xxxxl,
-  textAlign: "left",
-  fontFamily: theme.typography.fonts.sosieone,
-  display: "flex",
-  marginRight: theme.spacing.lg,
+export const ContainerImageLogoStyled: StyleComponents = {
+  width: "400px",
   cursor: "pointer",
-};
-
-export const ContainerTitleInitialCharacterStyled: StyleComponents = {
-  color: theme.palette.blue["550"],
-};
-
-export const ContainerTitleWordStyled: StyleComponents = {
-  color: theme.palette.red["550"],
 };
 
 export const ContainerListStyled: StyleComponents | ListProps = {
