@@ -45,17 +45,3 @@ export const ContainerItemListStyled: StyleComponents = {
   alignItems: "flex-end",
   gap: "16px",
 };
-
-export const QuantityProductsCartStyled: StyleComponents = {
-  fontSize: theme.typography.fontSize.sm,
-  padding: "2px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "20px",
-  height: "20px",
-  backgroundColor: theme.palette.red["550"],
-  color: theme.palette.white,
-  top: "60px",
-  borderRadius: "100%",
-};

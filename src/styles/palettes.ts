@@ -16,6 +16,7 @@ export const palettes = {
     800: "rgba(255, 255, 255, 0.80)",
     900: "rgba(255, 255, 255, 0.92)",
     1000: "#f2f2f2",
+    1100: "#f5f6fa",
   },
 
   blackAlpha: {

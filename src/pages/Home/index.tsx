@@ -1,4 +1,5 @@
 import {
+  ButtonComponent,
   DividerComponent,
   FlexComponent,
   HeadingComponent,
@@ -7,7 +8,7 @@ import {
   TextComponent,
 } from "@libs/chakra";
 import { useProduct } from "@hooks/useProducts";
-import { CardProduct, Paging, ButtonFilterProduct } from "@components";
+import { CardProduct, Paging } from "@components";
 import { IProduct } from "@interfaces/components";
 import {
   ButtonsFilterStyled,
@@ -50,13 +51,6 @@ export const Home = () => {
   return (
     <>
       <FlexComponent {...ContainerImageMainStyled}>
-        <ImageComponent
-          src="../src/assets/img/banner-main.svg"
-          alt="ecommerce de produtos"
-          loading="lazy"
-          {...ImageMainStyled}
-        />
-
         <FlexComponent {...ContainerInfoStyled}>
           <HeadingComponent fontSize={theme.typography.fontSize.xxxxl}>
             Bem-vindo à
@@ -76,10 +70,23 @@ export const Home = () => {
             Explore nossa seleção e deixe-nos adoçar seus momentos especiais com
             nossa paixão pelo doce.
           </HeadingComponent>
+
+          <ButtonComponent bg="pink">Cardápio V</ButtonComponent>
         </FlexComponent>
 
+        <ImageComponent
+          src="../src/assets/img/banner-main-compress.jpg"
+          alt="ecommerce de produtos"
+          loading="lazy"
+          {...ImageMainStyled}
+        />
+
         <FlexComponent {...FlowerImgStyled}>
-          <ImageComponent src="../src/assets/img/flower1.svg" loading="lazy" />
+          <ImageComponent
+            src="../src/assets/img/flower1.svg"
+            loading="lazy"
+            transform="scaleX(-1)"
+          />
         </FlexComponent>
       </FlexComponent>
 
@@ -89,7 +96,10 @@ export const Home = () => {
             {productState.listFiltered.length} Produtos
           </TextComponent>
 
-          <FlexComponent gap="8px">
+          <FlexComponent
+            gap="8px"
+            flexDirection={["column", "column", "column", "row"]}
+          >
             <SelectComponent
               placeholder="Categoria"
               onChange={(e: any) => filterProductsByCategory(e.target.value)}

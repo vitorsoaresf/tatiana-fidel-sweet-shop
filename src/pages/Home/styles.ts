@@ -3,8 +3,10 @@ import { theme } from "@styles";
 
 export const ContainerImageMainStyled: StyleComponents = {
   marginBottom: "67px",
-  background: theme.palette.black,
-  flexDirection: ["column", "column", "row"],
+  marginTop: ["200px", "0"],
+  background: theme.palette.whiteAlpha["1100"],
+  justifyContent: "space-between",
+  flexDirection: ["column-reverse", "column-reverse", "row"],
   position: "relative",
 };
 
@@ -16,12 +18,13 @@ export const ImageMainStyled: StyleComponents = {
 
 export const ContainerInfoStyled: StyleComponents = {
   maxWidth: "782px",
-  color: theme.palette.white,
+  color: theme.palette.black,
   marginTop: ["10px", "10px", "200px"],
   marginRight: ["100px", "100px", "20px", "20px", "20px"],
   flexDirection: "column",
   gap: "20px",
-  textAlign: ["center", "center", "right"],
+  // textAlign: ["center", "center", "right"],
+  justifyContent: "flex-start",
   width: "100%",
   padding: "20px",
   zIndex: 2,
@@ -33,7 +36,7 @@ export const FlowerImgStyled: StyleComponents = {
   bottom: "-1",
   width: "400px",
   height: "400px",
-  right: "0",
+  left: "0",
   position: "absolute",
 };
 

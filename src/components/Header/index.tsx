@@ -1,39 +1,27 @@
-import BagImg from "@assets/img/shopping_img.svg";
-import UserImg from "@assets/img/user.svg";
 import {
   ContainerHeaderStyled,
   ContainerImageLogoStyled,
   ContainerItemListStyled,
   ContainerListStyled,
-  QuantityProductsCartStyled,
 } from "./styles";
 import {
   FlexComponent,
-  HeadingComponent,
   ImageComponent,
   ListItemComponent,
-  TextComponent,
   UnorderedListComponent,
 } from "@libs/chakra";
 import { Link, useNavigate } from "@libs/reactRouterDom";
 import { Input } from "@components";
 import { Icon } from "@assets/icons";
-import { useCart } from "@hooks/useCart";
 import { useProduct } from "@hooks/useProducts";
-import { useEffect } from "@libs/react";
 import { useProductContext } from "@contexts/ProductsProvider/context";
 import ImgLogo from "@assets/img/logo_app.svg";
 import { theme } from "@styles";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { cartState, loadProductsCart } = useCart();
   const { filteByrTerm } = useProduct();
   const { productState } = useProductContext();
-
-  useEffect(() => {
-    loadProductsCart();
-  }, []);
 
   return (
     <FlexComponent
