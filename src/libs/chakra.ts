@@ -24,6 +24,12 @@ import {
   useToast,
   Divider,
   Skeleton,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+  Grid,GridItem 
 } from "@chakra-ui/react";
 
 export {
@@ -51,5 +57,11 @@ export {
   BreadcrumbLink as BreadcrumbLinkComponent,
   Divider as DividerComponent,
   Skeleton as SkeletonComponent,
+  Accordion as AccordionComponent,
+  AccordionItem as AccordionItemComponent,
+  AccordionButton as AccordionButtonComponent,
+  AccordionIcon as AccordionIconComponent,
+  AccordionPanel as AccordionPanelComponent,
+  Grid as GridComponent,GridItem  as GridItemComponent,
   useToast,
 };

@@ -1,8 +1,14 @@
 import { IProduct } from "@interfaces/components";
 import {
+  AccordionButtonComponent,
+  AccordionComponent,
+  AccordionIconComponent,
+  AccordionItemComponent,
+  AccordionPanelComponent,
   CardBodyComponent,
   CardComponent,
   FlexComponent,
+  GridItemComponent,
   HeadingComponent,
   ImageComponent,
   StackComponent,
@@ -12,72 +18,72 @@ import {
   CardStyled,
   DescriptionCardStyled,
   DiscountPercentageCardStyled,
-  FadeInBoxStyled,
   ImageStyled,
   PriceCardStyled,
   TitleCardStyled,
 } from "./styles";
-import { IconNewTab } from "@assets/icons/NewTab";
-import { useRedirect } from "@hooks/useRedirect";
 
 interface ICardProduct {
   product: IProduct;
 }
 
 export const CardProduct = ({ product }: ICardProduct) => {
-  const { redirectPage } = useRedirect();
-
   return (
-    <CardComponent
-      as="li"
-      maxW="sm"
-      data-test={`product-${product.id}`}
-      {...CardStyled}
-      onClick={() => redirectPage(`detailsproduct/${product.image}`)}
-    >
-      <CardBodyComponent>
-        <ImageComponent
-          src={`../src/assets/img/${product.image}`}
-          alt={product.description}
-          loading="lazy"
-          {...ImageStyled}
-        />
+    <GridItemComponent colSpan={2}>
+      <CardComponent
+        as="li"
+        maxW="sm"
+        data-test={`product-${product.id}`}
+        {...CardStyled}
+        // onClick={() => redirectPage(`detailsproduct/${product.image}`)}
+      >
+        <AccordionComponent defaultIndex={[0]} allowMultiple>
+          <AccordionItemComponent>
+            <AccordionButtonComponent>
+              <CardBodyComponent>
+                <ImageComponent
+                  src={`../src/assets/img/${product.image}`}
+                  alt={product.description}
+                  loading="lazy"
+                  {...ImageStyled}
+                />
 
-        <StackComponent {...DescriptionCardStyled}>
-          <HeadingComponent {...TitleCardStyled}>
-            {product.name}
-          </HeadingComponent>
+                <StackComponent {...DescriptionCardStyled}>
+                  <HeadingComponent {...TitleCardStyled}>
+                    {product.name}
+                  </HeadingComponent>
+                  <AccordionIconComponent />
 
-          <FlexComponent {...PriceCardStyled}>
-            <TextComponent
-              textDecoration={product.promotional_price && "line-through"}
-            >
-              R${product.price}
-            </TextComponent>
-            {!!product.promotional_price && (
-              <TextComponent>${product.promotional_price}</TextComponent>
-            )}
-          </FlexComponent>
-        </StackComponent>
-        {!!product.discount_percentage && (
-          <FlexComponent {...DiscountPercentageCardStyled}>
-            <TextComponent>${product.discount_percentage} OFF</TextComponent>
-          </FlexComponent>
-        )}
-        <FlexComponent
-          {...FadeInBoxStyled}
-          _hover={{ opacity: 0.7 }}
-          style={{
-            transition: ".5s ease",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          {<IconNewTab width="50px" height="50px" />}
-        </FlexComponent>
-      </CardBodyComponent>
-    </CardComponent>
+                  <AccordionPanelComponent pb={4}>
+                    {product.description}
+                    <FlexComponent {...PriceCardStyled}>
+                      <TextComponent
+                        textDecoration={
+                          product.promotional_price && "line-through"
+                        }
+                      >
+                        R${product.price}
+                      </TextComponent>
+                      {!!product.promotional_price && (
+                        <TextComponent>
+                          ${product.promotional_price}
+                        </TextComponent>
+                      )}
+                    </FlexComponent>
+                    {!!product.discount_percentage && (
+                      <FlexComponent {...DiscountPercentageCardStyled}>
+                        <TextComponent>
+                          ${product.discount_percentage} OFF
+                        </TextComponent>
+                      </FlexComponent>
+                    )}
+                  </AccordionPanelComponent>
+                </StackComponent>
+              </CardBodyComponent>
+            </AccordionButtonComponent>
+          </AccordionItemComponent>
+        </AccordionComponent>
+      </CardComponent>
+    </GridItemComponent>
   );
 };

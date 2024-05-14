@@ -2,6 +2,7 @@ import {
   ButtonComponent,
   DividerComponent,
   FlexComponent,
+  GridComponent,
   HeadingComponent,
   ImageComponent,
   SelectComponent,
@@ -128,7 +129,14 @@ export const Home = () => {
           </FlexComponent>
         </FlexComponent>
 
-        <FlexComponent as="ul" data-test="list-products" {...ProductListStyled}>
+        <GridComponent
+          as="ul"
+          data-test="list-products"
+          {...ProductListStyled}
+          templateRows="repeat(2, 1fr)"
+          templateColumns="repeat(5, 1fr)"
+          gap={4}
+        >
           {productState.listFiltered.length > 0 ? (
             productState.listFiltered
               .slice(countPage.rangeMin, countPage.rangeMax)
@@ -147,7 +155,7 @@ export const Home = () => {
               />
             </FlexComponent>
           )}
-        </FlexComponent>
+        </GridComponent>
 
         {/* {quantityProducts > 0 && (
           <FlexComponent {...PagingContainerStyled}>

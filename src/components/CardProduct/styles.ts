@@ -44,13 +44,3 @@ export const DiscountPercentageCardStyled: StyleComponents = {
   fontWeight: theme.typography.fontWeights.medium,
   fontFamily: theme.typography.fonts.montserrat,
 };
-
-export const FadeInBoxStyled: StyleComponents = {
-  opacity: 0,
-  display: "flex",
-  background: "white",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "100%",
-  height: "100%",
-};

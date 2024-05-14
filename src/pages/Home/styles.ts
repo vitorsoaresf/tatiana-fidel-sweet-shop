@@ -23,7 +23,6 @@ export const ContainerInfoStyled: StyleComponents = {
   marginRight: ["100px", "100px", "20px", "20px", "20px"],
   flexDirection: "column",
   gap: "20px",
-  // textAlign: ["center", "center", "right"],
   justifyContent: "flex-start",
   width: "100%",
   padding: "20px",
@@ -71,8 +70,6 @@ export const SelectElementsStyled: StyleComponents = {
 };
 
 export const ProductListStyled: StyleComponents = {
-  justifyContent: "center",
-  flexWrap: "wrap",
   gap: theme.spacing.lg,
   marginBottom: "40px",
 };
